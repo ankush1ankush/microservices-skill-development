@@ -1,0 +1,17 @@
+.postCard{
+  max-width: 400px;
+  max-height: 400px;
+  min-width: 400px;
+  background-color: antiquewhite;
+  margin: 5px;
+}
+.postCollection {
+  display: flex;
+  flex-wrap: wrap; /* Allows the items to wrap onto new lines */
+  gap: 16px; /* Optional: Adds spacing between items */
+}
+
+.postCollection > * {
+  flex: 1 1 calc(33.333% - 16px); /* Each item takes up 1/3rd of the row minus the gap */
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
