@@ -10,6 +10,7 @@ router.get("/posts", (req, res) => {
 })
 
 router.post("/posts", async (req, res) => {
+    console.log("test")
     const id = randomBytes(4).toString("hex");
     const { title } = req.body;
     posts[id] = {

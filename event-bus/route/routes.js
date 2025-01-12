@@ -7,9 +7,9 @@ router.post('/event', async(req,res)=>{
     await axios.post('http://localhost:4040/event',req.body);
     await axios.post('http://localhost:4000/event',req.body);
     await axios.post('http://localhost:4001/event',req.body);
-    res.send({status:'ok'});
+    await axios.post('http://localhost:4003/event',req.body);
+    res.send({status:200});
     }catch(e){
-
        console.log(e)
     }
 });

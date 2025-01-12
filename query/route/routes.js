@@ -15,8 +15,6 @@ router.post('/event',(req,res)=>{
                       ...data,
                       comments: []
                   }
-    
-     
    }
    if(event === "commentCreated")
    {  
@@ -26,7 +24,7 @@ router.post('/event',(req,res)=>{
       if( posts[postId]?.comments){
          posts[postId] = {
                            ...posts[postId],
-                           comments: [...posts[postId].comments, commentData ]
+                           comments: [...posts[postId]?.comments, commentData ]
                          }
      }
    
