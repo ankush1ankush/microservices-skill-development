@@ -21,7 +21,7 @@ router.post("/posts/comments", async (req, res) => {
     else {
         commentsByPostId[id] = [{ commentId, content, status: "pending" }];
     }
-    await axios.post("http://localhost:4005/event", {
+    await axios.post("http://eventbus:4005/event", {
         event: "commentCreated", data: {
             postId: id, commentData: {
                 commentId: commentId, content: content, status: "pending"
@@ -31,7 +31,8 @@ router.post("/posts/comments", async (req, res) => {
     return res.status(200).send(commentsByPostId[id]);
 });
 router.post("/event", (req, res) => {
-   
+     
+    console.log(req.body);
     res.send({ status: 'ok' });
 })
 

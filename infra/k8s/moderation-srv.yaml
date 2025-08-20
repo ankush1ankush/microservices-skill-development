@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moderationdeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moderation
+  template:
+    metadata:
+      labels:
+        app: moderation
+    spec:
+      containers:
+        - name: moderation
+          image: ankushpaul210/moderation
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4003 # Updated to match the Dockerfile exposed port
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: moderation-srv
+spec:
+  selector:
+    app: moderation
+  ports:
+    - protocol: TCP
+      port: 4003
+      targetPort: 4003

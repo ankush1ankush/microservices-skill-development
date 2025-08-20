@@ -19,7 +19,7 @@ module.exports = async (req , res) =>{
             },
             body : JSON.stringify(newdata)
        }
-       await fetch("http://localhost:4005/event",config)
+       await fetch("http://eventbus:4005/event",config)
     }
     res.end(JSON.stringify({ message: 'modration event produce' }));
    }catch(error){

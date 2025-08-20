@@ -16,7 +16,7 @@ router.post("/posts", async (req, res) => {
     posts[id] = {
        id,title
     }
-    await axios.post("http://localhost:4005/event",{event:"postCreated", data:{ postId : id , title:title}})
+    await axios.post("http://eventbus:4005/event",{event:"postCreated", data:{ postId : id , title:title}})
     res.status(201).send(posts);
 })
 router.post('/event',(req,res)=>{
